@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Happy Birthday Cantiknya Agass 💖</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Cormorant+Garamond:wght@600&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(to bottom, #fff0f5, #ffd6e7, #ffc8dd);
+            overflow-x: hidden;
+            min-height: 100vh;
+            color: #7a4b5f;
+        }
+
+        .hearts {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .heart {
+            position: absolute;
+            bottom: -20px;
+            color: #ff8fab;
+            font-size: 20px;
+            animation: floatUp linear infinite;
+            opacity: 0.7;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) scale(0.5);
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 0.7;
+            }
+
+            100% {
+                transform: translateY(-110vh) scale(1.2);
+                opacity: 0;
+            }
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4rem;
+            color: #d63384;
+        }
+
+        .hero h2 {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-top: 10px;
+        }
+
+        .glow {
+            animation: glow 2s infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px rgba(255, 105, 180, 0.2);
+            }
+
+            to {
+                text-shadow: 0 0 25px rgba(255, 105, 180, 0.7);
+            }
+        }
+
+        .gallery {
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .photo-card {
+            width: 90%;
+            max-width: 350px;
+            border-radius: 25px;
+            overflow: hidden;
+            background: white;
+            box-shadow: 0 8px 30px rgba(255, 182, 193, 0.3);
+            transition: .4s;
+        }
+
+        .photo-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .photo-card img {
+            width: 100%;
+            display: block;
+        }
+
+        .message-box {
+            margin: 50px auto;
+            width: 90%;
+            max-width: 500px;
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(12px);
+            padding: 35px;
+            border-radius: 30px;
+            text-align: center;
+            box-shadow: 0 8px 30px rgba(255, 192, 203, .3);
+        }
+
+        button {
+            background: #ff8fab;
+            border: none;
+            padding: 15px 35px;
+            font-size: 1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            color: white;
+            margin-top: 20px;
+            transition: .3s;
+        }
+
+        button:hover {
+            background: #fb6f92;
+            transform: scale(1.05);
+        }
+
+        .hidden-message {
+            display: none;
+            margin-top: 20px;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #c9184a;
+            font-weight: 500;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 30px;
+            font-size: .9rem;
+            opacity: .7;
+        }
+    </style>
+</head>
+
+<body>
+
+    <audio id="bgm" loop preload="auto">
+        <source src="lagu.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="hearts" id="hearts"></div>
+
+    <section class="hero">
+        <h1 class="glow">Happy Birthday</h1>
+        <h1 class="glow">Cantiknya Agass 💖</h1>
+        <h2>Semoga hari kamu selalu dipenuhi bahagia, tawa, dan cinta 🌷</h2>
+    </section>
+
+    <section class="gallery">
+
+        <div class="photo-card">
+            <img src="foto1.jpeg">
+        </div>
+
+        <div class="photo-card">
+            <img src="foto2.jpg">
+        </div>
+
+        <div class="photo-card">
+            <img src="foto3.jpg">
+        </div>
+
+        <div class="photo-card">
+            <img src="foto4.jpg">
+        </div>
+
+    </section>
+
+    <div class="message-box">
+        <h2>Untuk Agass 💌</h2>
+
+        <p>
+            Ada satu hal yang selalu pengen aku bilang ke kamu...
+        </p>
+
+        <button onclick="showMessage(); playAudio()">
+            Klik di sini 🤍
+        </button>
+
+        <div class="hidden-message" id="message">
+            “aku sayang banget sama kamu sampai kapanpun chaa 💖. Nyatanya rasa yang aku punya ke kamu tuh lebih dari
+            itu, salah satu hal yang paling ngga pernah aku sesali yaa kenal kamu cha, makasii banyak yaa udah pernah
+            jadi bagian terpenting dalam hidup aku, maaf kaloo selama ini aku selalu ngecewain kamu cha, satu satunya
+            hal yang aku mau yaa cuma kamu cha, aku pengen kita yang dulu, nobody has ever touched my heart the way you
+            did. That's how i knew you were different."
+        </div>
+    </div>
+
+    <div class="footer">
+        Made with love 💖
+    </div>
+
+    <script>
+        function showMessage() {
+            document.getElementById("message").style.display = "block";
+        }
+
+        function playAudio() {
+            const audio = document.getElementById("bgm");
+            if (!audio) return;
+
+            audio.volume = 1;
+            audio.play().catch((err) => {
+                console.log("Audio gagal diputar:", err);
+                alert("Audio belum bisa diputar. Coba klik tombol lagi / cek volume perangkat.");
+            });
+        }
+
+        function createHeart() {
+            const heart = document.createElement("div");
+            heart.classList.add("heart");
+            heart.innerHTML = "♡";
+
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.fontSize = Math.random() * 20 + 15 + "px";
+            heart.style.animationDuration = Math.random() * 5 + 5 + "s";
+
+            document.getElementById("hearts").appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 10000);
+        }
+
+        setInterval(createHeart, 300);
+    </script>
+
+</body>
+
+</html>
